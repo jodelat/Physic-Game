@@ -4,11 +4,12 @@ var wins = 0;
 var guesses = 10;
 var losses = 0;
 
+function reset(){
+      guesses = 10;
+  }
+
 
   document.onkeyup = function(event) {
-    function reset(){
-        guesses = 10;
-    }
 
   var player = event.key;
   var random = alphabet[Math.floor(Math.random()*alphabet.length)];
@@ -18,8 +19,10 @@ var losses = 0;
     reset(guesses);
     console.log("wins:" + " " + wins);
   }
+
   else if(player !== random && guesses >= 1) {
     guesses--;
+
     if(guesses < 1){
       losses++;
       reset(guesses);
