@@ -11,33 +11,33 @@ function reset(){
 
   document.onkeyup = function(event) {
 
-  var player = event.key;
-  var random = alphabet[Math.floor(Math.random()*alphabet.length)];
+    var player = event.key;
+    var random = alphabet[Math.floor(Math.random()*alphabet.length)];
 
-  if(player === random && guesses >= 1) {
-    wins++;
-    reset(guesses);
-    console.log("wins:" + " " + wins);
-  }
-
-  else if(player !== random && guesses >= 1) {
-    guesses--;
-
-    if(guesses < 1){
-      losses++;
+    if(player === random && guesses >= 1) {
+      wins++;
       reset(guesses);
+      console.log("wins:" + " " + wins);
     }
-    console.log("losses:" + " " + losses);
-    console.log("guesses" + " " + guesses);
+
+    else if(player !== random && guesses >= 1) {
+      guesses--;
+
+      if(guesses < 1){
+        losses++;
+        reset(guesses);
+      }
+      console.log("losses:" + " " + losses);
+      console.log("guesses" + " " + guesses);
   }
 
-  var html =
-   "<p>You chose: " + player + "</p>" +
-   "<p>The computer chose: " + random + "</p>" +
-   "<p>wins: " + wins + "</p>" +
-   "<p>losses: " + losses + "</p>" +
-   "<p>guesses left: " + guesses + "</p>";
+    var html =
+      "<p>You chose: " + player + "</p>" +
+      "<p>The computer chose: " + random + "</p>" +
+      "<p>wins: " + wins + "</p>" +
+      "<p>losses: " + losses + "</p>" +
+      "<p>guesses left: " + guesses + "</p>";
 
-  document.querySelector("#game").innerHTML = html;
+      document.querySelector("#game").innerHTML = html;
 
 }
